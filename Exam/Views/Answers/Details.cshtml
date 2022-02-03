@@ -1,0 +1,83 @@
+﻿@model Exam.Models.Answer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Answer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paper.PaperName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paper.PaperName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.StuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.StuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.TeacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.TeacherName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AnswerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

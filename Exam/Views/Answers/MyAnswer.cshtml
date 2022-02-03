@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Answer>
+@{ ViewBag.Title = "我的考试"; }
+<h2>@ViewBag.Title </h2>
+<table class="table">
+    <tr>
+        <th>学生姓名</th>
+        <th>试卷</th>
+        <th>批卷</th>
+        <th>分数</th>
+        <th>操作</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Student.StuName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Paper.PaperExplain)</td>
+            <td>@(item.AnswerState == 0? "答题中": item.AnswerState == 1? "未批卷": "已批卷")</td>
+            <td> @Html.DisplayFor(modelItem => item.AnswerScore)</td>
+            <td>
+                @Html.ActionLink("查看详细", "MyAnswerDetail", new { controller = "Answers", id = item.AnswerID })
+                @if (item.AnswerState == 0)
+                {
+                    @Html.ActionLink("继续答题", "BeginAnswer", new { controller = "Answers", PaperID = item.PaperID, AnswerID = item.AnswerID })
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+

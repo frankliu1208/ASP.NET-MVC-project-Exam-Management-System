@@ -1,0 +1,65 @@
+﻿@model Exam.Models.Teacher
+
+@{
+    ViewBag.Title = "删除教师";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>删除教师</h2>
+
+<h3>是否确认删除教师？</h3>
+<div>
+    <h4>教师信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherLoginName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherLoginName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherLoginPwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherLoginPwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherEmail)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=" 删除 " class="btn btn-default" /> |
+            @Html.ActionLink("返回教师列表", "Index")
+        </div>
+    }
+</div>

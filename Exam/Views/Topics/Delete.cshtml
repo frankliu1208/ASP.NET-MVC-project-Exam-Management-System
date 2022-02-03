@@ -1,0 +1,104 @@
+﻿@model Exam.Models.Topic
+
+@{
+    ViewBag.Title = "删除考题";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>删除考题</h2>
+
+<h3>是否确认删除?</h3>
+<div>
+    <h4>考题信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicExplain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicExplain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicSort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicSort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paper.PaperName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paper.PaperName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="确认删除" class="btn btn-default" /> |
+        </div>
+    }
+</div>

@@ -1,0 +1,59 @@
+﻿@model Exam.Models.Teacher
+
+@{
+    ViewBag.Title = "教师信息详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>教师信息详情</h2>
+
+<div>
+    <h4>教师信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherLoginName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherLoginName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherLoginPwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherLoginPwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.TeacherID }) |
+    @Html.ActionLink("返回教师列表", "Index")
+</p>

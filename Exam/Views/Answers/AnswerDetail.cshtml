@@ -1,0 +1,70 @@
+﻿    <!--导入jquery需要的js和样式文件-->
+<script src="/UI/jquery-1.7.1.min.js"></script>
+<script src="/UI/jquery.unobtrusive-ajax.min.js"></script>
+@using Exam.Models
+@model Exam.Models.Answer
+@{
+    ViewBag.Title = "在线考试";
+    Answer answer = (Answer)ViewBag.answer;
+}
+<h2>在线考试</h2>
+<table>
+    <tr>
+        <td>
+            <h4>试卷描述</h4><hr />
+            试卷名称: @answer.Paper.PaperName <br />
+            试卷介绍: @answer.Paper.PaperExplain<br />
+            试卷时长: @answer.Paper.PaperTime (分钟)<br />
+        </td>
+        <td>
+            <h4>考生信息</h4><hr />
+            学生姓名: @answer.Student.StuName <br />
+            学生班级: @answer.Student.StuGrade<br />
+            <a href="/Answers/Hand/@answer.AnswerID">交卷</a><br />
+        </td>
+    </tr>
+</table>
+
+<fieldset>
+    <legend>答题区</legend>
+    <div>
+        <!--展示所有考题序号链接-->
+        @for (int i = 1; i <= answer.Paper.Topic.Count; i++)
+        {
+            <a href="#" onclick="topic(@answer.AnswerID,@i);">@i</a>
+        }
+        <a href="#" onclick="showAnswer(@answer.AnswerID);">试卷内容</a>
+    </div>
+    @using (Ajax.BeginForm("SubmitAnswer", "Answers", null, new AjaxOptions
+    {
+        UpdateTargetId = "topic",
+        HttpMethod = "Post",
+        OnSuccess = ""
+    }))
+    {
+        <div id="topic" style="border:1px solid gray">
+        </div>
+    }
+</fieldset>
+
+<script type="text/javascript">
+    //按排序编号显示考题
+    function topic(aid, sort) {
+        var url = '/Answers/_Topic?aid=' + aid + '&sort=' + sort;
+        $.get(url, function(data){
+            $('#topic').html(data);
+        })
+    }
+    //显示所有考题
+    function showAnswer(aid) {
+        var url = '/Answers/_AllDetailStu?aid=' + aid ;
+        $.get(url, function (data) {
+            $('#topic').html(data);
+        })
+    }
+    //默认显示第一题
+    $(        topic(@answer.AnswerID, 1)    )
+</script>
+
+
+

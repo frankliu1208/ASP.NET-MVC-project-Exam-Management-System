@@ -1,0 +1,20 @@
+﻿<!--学生登录-->
+<div id="header">
+    <div id="logo"><span id="logotxt">在线全自动考试</span></div>
+    <div id="loginmsg">
+        <span>@Session["LoginName"] 同学您好, 欢迎光临在线全自动考试系统</span>
+        <a href="/Home/Logout">退出系统</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div id="menu">
+    <ul>
+        <li><a href="/Home/Index">首页</a></li>
+        <li><a href="/Students/Details/@Session["LoginID"]">我的资料</a></li>
+        <li><a href="/Papers/IndexStu">在线考试</a></li>
+        <li><a href="/Answers/MyAnswer">我的考试</a></li>
+        <li><a href="/Home/About">关于</a></li>
+        <div style="clear:both;"></div>
+    </ul>
+</div>
+

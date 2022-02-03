@@ -1,0 +1,33 @@
+﻿<!--全部答题分布视图-->
+<fieldset>
+    <legend>试卷内容</legend>
+    <ul style="list-style:inside;">
+        @foreach (Exam.Models.Detail item in ViewBag.Details)
+        {
+            <li style="padding:20px;">
+                <span style="font-weight:bold"> @item.Topic.TopicExplain</span> ( @item.Topic.TopicScore 分)
+                <ul style="padding-left:30px;">
+                    @if (item.Topic.TopicType == 1)
+                    {<!--选择题-->
+                        <li>A.@item.Topic.TopicA </li>
+                        <li>B. @item.Topic.TopicB</li>
+                        <li>C. @item.Topic.TopicC</li>
+                        <li>D. @item.Topic.TopicD</li>
+                        <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                    }
+                    else if (item.Topic.TopicType == 2)
+                    {<!--判断题-->
+                        <li>
+                            <span style="color:blue;"> 您的答案是：@(item.DetailAnswer == "1"?"对": "错")</span>
+                        </li>
+                    }
+                    else if (item.Topic.TopicType == 3)
+                    {<!--问答题-->
+                        <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</fieldset>
+

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Exam.Models.Student>
+@{
+    ViewBag.Title = "学生列表";
+}
+<h2>学生列表</h2>
+<p>
+    @Html.ActionLink("添加新的学生", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.StuName)</th>
+        <th>@Html.DisplayNameFor(model => model.StuLoginName)</th>
+        <th>@Html.DisplayNameFor(model => model.StuLoginPwd)</th>
+        <th>@Html.DisplayNameFor(model => model.StuSex)</th>
+        <th>@Html.DisplayNameFor(model => model.StuPhone)</th>
+        <th>@Html.DisplayNameFor(model => model.StuEmail)</th>
+        <th>@Html.DisplayNameFor(model => model.StuGrade)</th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.StuName)</td>
+        <td>@Html.DisplayFor(modelItem => item.StuLoginName)</td>
+        <td>@Html.DisplayFor(modelItem => item.StuLoginPwd)</td>
+        <td>@(item.StuSex?"男":"女")</td>
+        <td>@Html.DisplayFor(modelItem => item.StuPhone)</td>
+        <td>@Html.DisplayFor(modelItem => item.StuEmail)</td>
+        <td>@Html.DisplayFor(modelItem => item.StuGrade)</td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.StuID }) |
+            @Html.ActionLink("详情", "Details", new { id = item.StuID }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.StuID })
+        </td>
+    </tr>
+}
+</table>

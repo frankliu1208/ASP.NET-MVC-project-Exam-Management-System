@@ -1,0 +1,43 @@
+﻿@model Exam.Models.Detail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer.AnswerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer.AnswerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic.TopicExplain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic.TopicExplain)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

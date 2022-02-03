@@ -1,0 +1,105 @@
+﻿@model Answer
+@{
+    ViewBag.Title = "在线考试";
+    Answer answer = (Answer)ViewBag.answer;
+}
+<h2>@ViewBag.Title</h2>
+<table>
+    <tr>
+        <td>
+            <h4>试卷描述</h4><hr />
+            试卷名称: @answer.Paper.PaperName <br />
+            试卷介绍: @answer.Paper.PaperExplain<br />
+            试卷时长: @answer.Paper.PaperTime (分钟)<br />
+        </td>
+        <td>
+            <h4>考生信息</h4><hr />
+            学生姓名: @answer.Student.StuName <br />
+            学生班级: @answer.Student.StuGrade<br />
+            交卷时间：@answer.SubmitTime <br />
+        </td>
+    </tr>
+</table>
+
+<fieldset>
+    <legend>试卷答题内容</legend>
+    <ul>
+        @foreach (Detail item in ViewBag.Details)
+        {
+            <li>
+                <span style="font-weight:bold"> @item.Topic.TopicExplain</span> ( @item.Topic.TopicScore 分)
+                <ul>
+                    @if (item.Topic.TopicType == 1)
+                    {
+                        <li>A.@item.Topic.TopicA </li>
+                        <li>B. @item.Topic.TopicB</li>
+                        <li>C. @item.Topic.TopicC</li>
+                        <li>D. @item.Topic.TopicD</li>
+                        <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                        if (answer.AnswerState == 2)
+                        {
+                            <li><span style="color:red;">正确答案是：@item.Topic.TopicAnswer</span>
+                                @if (item.DetailAnswer == item.Topic.TopicAnswer)
+                                {
+                                    <span style="color:green">✔</span>
+                                }
+                                else
+                                {
+                                    <span style="color:red">✘</span>
+                                }
+                            </li>
+                        }
+                    }
+                    else if (item.Topic.TopicType == 2)
+                    {
+                        <li><span style="color:blue;">您的答案是：@(item.DetailAnswer == "1" ? "对" : "错")</span></li>
+                        if (answer.AnswerState == 2)
+                        {
+                            <li><span style="color:red;">正确答案是：@(item.Topic.TopicAnswer == "1" ? "对" : "错")</span>
+                                @if (item.DetailAnswer == item.Topic.TopicAnswer)
+                                {
+                                    <span style="color:green">✔</span>
+                                }
+                                else
+                                {
+                                    <span style="color:red">✘</span>
+                                }
+                            </li>
+                        }
+                    }
+                    else if (item.Topic.TopicType == 3)
+                    {
+                         <li><span style="color:blue;">您的答案是：@item.DetailAnswer</span></li>
+                        if (answer.AnswerState == 2)
+                        {
+                            <li>
+                                <span style="color:red;">正确答案是：@item.Topic.TopicAnswer</span>
+                                @if (item.DetailAnswer == item.Topic.TopicAnswer)
+                                {
+                                    <span style="color:green">✔</span>
+                                }
+                                else
+                                {
+                                    <span style="color:red">✘</span>
+                                }
+                            </li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+
+    <div style="font-size:30px;color:red;padding:10px 50px">
+        @if (answer.AnswerState == 2) {
+            <span> 分数：@answer.AnswerScore </span>
+        } else if (answer.AnswerState == 1) {
+            <span>未审卷 </span>
+        } else {
+            @Html.ActionLink("继续答题", "BeginAnswer", new { controller = "Answers", PaperID = answer.PaperID , AnswerID=answer.AnswerID })
+        }
+    </div>
+</fieldset>
+
+
+
