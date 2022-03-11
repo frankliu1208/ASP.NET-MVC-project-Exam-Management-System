@@ -22,28 +22,28 @@ namespace Exam.Models
         }
 
         public int TopicID { get; set; }
-        [Display(Name = "考题描述")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Question description")]
+        [Required(ErrorMessage = "{0} is required")]
         public string TopicExplain { get; set; }
-        [Display(Name = "该题分值")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Score for this question")]
+        [Required(ErrorMessage = "{0} is required")]
         public int TopicScore { get; set; }
-        [Display(Name = "类型")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Type")]
+        [Required(ErrorMessage = "{0} is required")]
         public int TopicType { get; set; }
-        [Display(Name = "A选项")]
+        [Display(Name = "Option A")]
         public string TopicA { get; set; }
-        [Display(Name = "B选项")]
+        [Display(Name = "Option B")]
         public string TopicB { get; set; }
-        [Display(Name = "C选项")]
+        [Display(Name = "Option C")]
         public string TopicC { get; set; }
-        [Display(Name = "D选项")]
+        [Display(Name = "Option D")]
         public string TopicD { get; set; }
-        [Display(Name = "排序")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Sorting")]
+        [Required(ErrorMessage = "{0} is required")]
         public int TopicSort { get; set; }
-        [Display(Name = "正确答案")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Correct answer")]
+        [Required(ErrorMessage = "{0} is required")]
         public string TopicAnswer { get; set; }
         public int PaperID { get; set; }
 

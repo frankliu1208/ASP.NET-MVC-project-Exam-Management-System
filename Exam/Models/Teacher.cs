@@ -22,16 +22,16 @@ namespace Exam.Models
         }
     
         public int TeacherID { get; set; }
-        [Display(Name = "姓名")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Name")]
+        [Required(ErrorMessage = "{0} is mandatory")]
         public string TeacherName { get; set; }
-        [Display(Name = "登录名")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Login name")]
+        [Required(ErrorMessage = "{0} is mandatory")]
         public string TeacherLoginName { get; set; }
-        [Display(Name = "密码")]
-        [Required(ErrorMessage = "{0}是必填项")]
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "{0} is mandatory")]
         public string TeacherLoginPwd { get; set; }
-        [Display(Name = "电话")]
+        [Display(Name = "Telephone")]
         public string TeacherPhone { get; set; }
         [Display(Name = "Email")]
         public string TeacherEmail { get; set; }

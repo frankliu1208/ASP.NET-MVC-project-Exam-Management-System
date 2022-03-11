@@ -1,19 +1,19 @@
-﻿<!--学生登录-->
+﻿<!--Login by students-->
 <div id="header">
-    <div id="logo"><span id="logotxt">在线全自动考试</span></div>
+    <div id="logo"><span id="logotxt">Online automated testing system</span></div>
     <div id="loginmsg">
-        <span>@Session["LoginName"] 同学您好, 欢迎光临在线全自动考试系统</span>
-        <a href="/Home/Logout">退出系统</a>
+        <span>@Session["LoginName"] Welcome to the online automated testing system</span>
+        <a href="/Home/Logout">Log out</a>
     </div>
     <div style="clear:both;"></div>
 </div>
 <div id="menu">
     <ul>
-        <li><a href="/Home/Index">首页</a></li>
-        <li><a href="/Students/Details/@Session["LoginID"]">我的资料</a></li>
-        <li><a href="/Papers/IndexStu">在线考试</a></li>
-        <li><a href="/Answers/MyAnswer">我的考试</a></li>
-        <li><a href="/Home/About">关于</a></li>
+        <li><a href="/Home/Index">Home page</a></li>
+        <li><a href="/Students/Details/@Session["LoginID"]">My documents</a></li>
+        <li><a href="/Papers/IndexStu">Online tests</a></li>
+        <li><a href="/Answers/MyAnswer">My tests</a></li>
+        <li><a href="/Home/About">About</a></li>
         <div style="clear:both;"></div>
     </ul>
 </div>

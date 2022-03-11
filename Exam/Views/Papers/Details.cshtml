@@ -1,11 +1,11 @@
 ﻿@model Exam.Models.Paper
 @{
-    ViewBag.Title = "试卷详情";
+    ViewBag.Title = "Details of paper";
 }
 <h2>试卷详情</h2>
 <div>
     <fieldset>
-        <legend>试卷信息</legend>
+        <legend>Paper information</legend>
         <dl class="dl-horizontal">
             <dt> @Html.DisplayNameFor(model => model.PaperName)</dt>
             <dd>@Html.DisplayFor(model => model.PaperName)</dd>
@@ -13,7 +13,7 @@
             <dd> @Html.DisplayFor(model => model.PaperExplain)</dd>
             <dt> @Html.DisplayNameFor(model => model.PaperTime)</dt>
             <dd> @Html.DisplayFor(model => model.PaperTime) 分钟</dd>
-            <dt> 试卷总分</dt>
+            <dt> Total score of the papers</dt>
             <dd> @TempData["Score"] 分</dd>
         </dl>
     </fieldset>

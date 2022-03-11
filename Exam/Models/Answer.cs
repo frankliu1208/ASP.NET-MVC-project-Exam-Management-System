@@ -22,24 +22,32 @@ namespace Exam.Models
         }
 
         public int AnswerID { get; set; }
-        [Display(Name = "试题ID")]
-        [Required(ErrorMessage = "{0}是必填项")]
+
+        [Display(Name = "Question ID")]
+        [Required(ErrorMessage = "{0}is mandatory")]
         public int PaperID { get; set; }
-        [Display(Name = "学生ID")]
-        [Required(ErrorMessage = "{0}是必填项")]
+
+        [Display(Name = "Student ID")]
+        [Required(ErrorMessage = "{0}is mandatory")]
         public int StuID { get; set; }
-        [Display(Name = "阅卷老师ID")]
+
+        [Display(Name = "Teacher ID")]
         public int TeacherID { get; set; }
-        [Display(Name = "分数")]
-        [Required(ErrorMessage = "{0}是必填项")]
+
+        [Display(Name = "Scores")]
+        [Required(ErrorMessage = "{0}is mandatory")]
         public int AnswerScore { get; set; }
-        [Display(Name = "答题时间")]
+
+        [Display(Name = "Testing time")]
         public Nullable<System.DateTime> AnswerTime { get; set; }
-        [Display(Name = "提交时间")]
+
+        [Display(Name = "Submission time")]
         public Nullable<System.DateTime> SubmitTime { get; set; }
-        [Display(Name = "阅卷时间")]
+
+        [Display(Name = "Reviewing time")]
         public Nullable<System.DateTime> BatchTime { get; set; }
-        [Display(Name = "试卷状态")]
+
+        [Display(Name = "Status")]
         public int AnswerState { get; set; }
 
 

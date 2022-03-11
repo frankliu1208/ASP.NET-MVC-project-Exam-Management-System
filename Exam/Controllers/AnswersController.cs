@@ -278,17 +278,17 @@ namespace Exam.Controllers
         }
         #endregion
 
-        #region 学生试卷
-        //学生试卷列表
+        #region Students' paper
+        
         // GET: Answers/MyAnswer
         public ActionResult MyAnswer()
         {
-            int sid = (int)Session["LoginID"]; //查询当前登录学生的试卷
+            int sid = (int)Session["LoginID"]; //search for the paper of current log-in student
             var answers = db.Answer.Include("Student").Where(a => a.StuID == sid).ToList();
             return View(answers);
         }
         // GET: Answers/MyAnswerDetail/5
-        //学生试卷答题详情
+        //Answering details of students
         public ActionResult MyAnswerDetail(int id)
         {
             //Answer answer = db.Answer.Find(id);

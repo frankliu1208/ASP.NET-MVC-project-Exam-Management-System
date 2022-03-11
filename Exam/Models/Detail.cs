@@ -16,11 +16,11 @@ namespace Exam.Models
     public partial class Detail
     {
         public int DetailID { get; set; }
-        [Display(Name = "答案ID")]
+        [Display(Name = "Answer ID")]
         public int AnswerID { get; set; }
-        [Display(Name = "题目ID")]
+        [Display(Name = "Topic ID")]
         public int TopicID { get; set; }
-        [Display(Name = "学生答案")]
+        [Display(Name = "Answer by students")]
         public string DetailAnswer { get; set; }
 
         public virtual Answer Answer { get; set; }
